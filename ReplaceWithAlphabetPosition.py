@@ -1,6 +1,8 @@
-def alphabet_position(text):
-    pass
+import re
 
+def alphabet_position(text):
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+    
 
 if __name__ == '__main__':
     print alphabet_position("The sunset sets at twelve o' clock.")
