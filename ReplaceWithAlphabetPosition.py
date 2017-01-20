@@ -1,8 +1,14 @@
 import re
 
 def alphabet_position(text):
-    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
-    
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    s = re.split('[^a-zA-Z]', text.lower())
+    joined_text = ''.join(s)
+    result = []
+    for i in range(0,len(joined_text),1):
+        result.append(alphabet.index(joined_text[i])+1)
+
+    return ' '.join(str(x) for x in result)
 
 if __name__ == '__main__':
     print alphabet_position("The sunset sets at twelve o' clock.")
