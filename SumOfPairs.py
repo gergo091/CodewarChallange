@@ -25,32 +25,31 @@
 # #  * entire pair is earlier, and therefore is the correct answer
 # == [3, 7]
 # Negative numbers and duplicate numbers can and will appear.
-
+from itertools import combinations
 
 def sum_pairs(ints, s):
     temp = 0
-    one = 0
-    two = 0
+    ind1 = 0
+    ind2 = 0
     count = 0
     result = []
     for i in range(0, len(ints) - 1, 1):
         for j in range(i + 1, len(ints), 1):
             temp = ints[i] + ints[j]
-            if (temp == s):
-                if (count != 0):
-                    if (i < one) | (j < two):
-                        one = i
-                        two = j
-                else:
-                    one = i
-                    two = j
-                    count += 1
-    result.append(ints[one])
-    result.append(ints[two])
-    if (count == 0):
-        return None
+            if (temp == s) & (count != 0):
+                if (i < ind1) | (j < ind2):
+                    ind1 = i
+                    ind2 = j
+            elif (temp == s) & (count == 0):
+                ind1 = i
+                ind2 = j
+                count += 1
+    if (count != 0):
+        result.append(ints[ind1])
+        result.append(ints[ind2])
     else:
-        return result
+        result = None
+    return result
 
 if __name__ == '__main__':
     l1 = [1, 4, 8, 7, 3, 15]
